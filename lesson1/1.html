@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*{
+			//console.log(b);
+			let b = 10;
+			
+		}
+		//console.log(b);*/
+
+		//当第二个参数不传  将以浏览器最短的时间间隔执行
+				//当for循环结束，再输出i，此时i是10
+		/*for(var i = 0; i<10;i++){
+			setTimeout(function(){
+				console.log(i); //i是全局变量
+			})
+		}*/
+
+		//此时 i 是块级作用域  类似于闭包
+		/*for(let i = 0; i<10;i++){
+			setTimeout(function(){
+				console.log(i); 
+			})
+		}*/
+
+		//闭包中 n相当于 局部变量
+		for(var i = 0; i<10; i++){
+			(function(n){
+				setTimeout(function(){
+					console.log(n);
+				})
+			})(i)
+		}
+
+
+		let a = 100;
+		a = 101;
+		/*
+		常量不能被重新赋值 不能被修改
+		const b = 100;
+		 b = 200;*/
+	</script>
+</body>
+</html>

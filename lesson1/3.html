@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		*数组的结构赋值
+		*/
+		/*var [a,b,c] = [1,2,3];
+		console.log(a,b,c)
+		console.log(a);*/
+		/*var [a,b,c] = [1,[1,2,3],[4,5,6]];
+		console.log(a)
+		console.log(b)
+		console.log(c)*/
+
+		/*
+		* 对象的结构赋值
+		*/
+		var obj = {
+			show:function(){console.log(1)},
+			a:{username:'您好'},
+			arr:[1,2,3],
+			str:'abcedf'
+		}
+		//名字需要一一对应， 无所谓顺序
+		var {a,show,arr} = obj;
+		console.log(a);
+		console.log(show);
+		console.log(arr);
+		//console.log(str);  --未定义
+
+
+		function demo(){
+			var index = 1+100;
+			return {
+				username:'三毛',
+				age:index,
+				sex:1
+			}
+			//return 1;
+		}
+
+		let {username,age,sex} = demo();
+		console.log(username);
+		console.log(age);
+		console.log(sex);
+
+
+		//返回码点
+		console.log('a'.codePointAt());
+		console.log('aAb'.codePointAt(1));
+		//一个字节一个字
+		console.log('傻逼'.codePointAt(0));
+		console.log('傻逼'.codePointAt(1)); 
+		//两个字节一个字
+		console.log('𠮷'.codePointAt(0));
+		console.log('𠮷'.codePointAt(1));
+
+		//字符串重复
+		console.log('abc'.repeat(5));
+
+
+		//超级字符串(模板字符串)  解析变量
+		var index = 10;
+		var obj = {
+			name:'二毛',
+			age:12
+		}
+		var str = '第'+index+',姓名是：'+obj.name+',年龄是：'+obj.age;
+		console.log(str);
+
+		//解析变量 表达式
+		var newStr = `第${index+1}名是：${obj.name},年龄是：${obj.age}`;
+		console.log(newStr);
+	</script>
+</body>
+</html>

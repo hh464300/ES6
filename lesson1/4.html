@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		'use strict';
+		//1. str.includes() 
+		console.log('abc'.includes('b'));
+		console.log('abc'.includes('d'));
+
+		//2. startsWith(); 是不是首位
+		//3. endsWith();   是不是尾部
+		console.log('hello world'.startsWith('he')); //true
+		console.log('hello world'.startsWith('llo')); //false
+		
+		console.log('hello world'.endsWith('d')); //true
+
+		/*
+		* ECMA6中的数值
+		*/
+		//新的二进制写法
+		console.log(0b1010);
+		//新的八进制写法
+		console.log(0o11);
+
+		//console.log(011); 老的八进制在严格模式下不支持
+
+		//Math新方法 Math.trunc() 去点小数点
+		console.log(Math.trunc(1.234));  //  返回1 
+
+		//Math.sign()  判断是正数，负数， 0   -0
+		console.log(Math.sign(100));//返回  1
+		console.log(Math.sign(0));//返回    0 
+		console.log(Math.sign(-0));//返回   -0 
+		console.log(Math.sign(-100));//返回 1
+
+		//Math.hypot()  勾股定理
+		console.log(Math.hypot(3,4)); //返回5
+	</script>
+</body>
+</html>

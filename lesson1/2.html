@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		button{
+			width:100px;
+			height:60px;
+			font-size: 30px;
+		}
+		.container{
+			width:340px;
+			height:200px;
+			border:1px solid #ccc;
+			position: relative;
+		}
+		.container div{
+			height:200px;
+			width:100%;
+			line-height: 200px;
+			text-align: center;
+			font-size: 50px;
+			position: absolute;
+			left:0;
+			top:0;
+			display: none;
+		}
+		.container div.active{
+			display: block;
+		}
+		button.active{
+			background: orange;
+			color:white;
+		}
+	</style>
+</head>
+<body>
+	<button class="active">1</button>
+	<button>2</button>
+	<button>3</button>
+	<div class="container" id="container">
+		<div class="active">aaaa</div>
+		<div>bbbb</div>
+		<div>cccc</div>
+	</div>
+	<script>
+		var buttons = document.getElementsByTagName('button');
+		var container = document.getElementById('container');
+		var divs = container.getElementsByTagName('div');
+		/*
+		使用闭包
+		for(var i = 0; i<buttons.length; i++){
+			(function(n){
+				buttons[n].onclick = function(){
+					removeClass();
+					divs[n].className = 'active';
+					buttons[n].className = 'active';
+				}
+			})(i)
+		}*/
+		for(let i = 0; i<buttons.length; i++){
+			buttons[i].onclick = function(){
+					removeClass();
+					divs[i].className = 'active';
+					buttons[i].className = 'active';
+				}
+		}
+		function removeClass(){
+			for(var j = 0; j<buttons.length; j++){
+				divs[j].className = '';
+				buttons[j].className = '';
+			}
+		}
+	</script>
+</body>
+</html>
