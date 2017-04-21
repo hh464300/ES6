@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		没有参数的情况下
+		function Getname(){
+			this.name='大毛';
+			this.toshow = function(){
+				console.log(this.name);
+			}
+		}
+		function Toshow(){
+			Getname.apply(this); //继承
+			//Getname.call(this); //继承
+		}
+		var show = new Toshow();
+		show.toshow();*/
+
+		function Getname(name,age){
+			this.name= name;
+			this.age= age;
+			this.toshow = function(){
+				console.log(this.name+'今年'+this.age);
+			}
+		}
+		function Toshow(name,age){
+			//Getname.apply(this,arguments); //apply的方法继承
+			//Getname.call(this,name,age); //call的方法继承、
+			//Getname.apply(this,name,age); //错误的参数形式
+		}
+		var show = new Toshow('大毛',21);
+		show.toshow();
+
+	</script>
+</body>
+</html>

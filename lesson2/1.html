@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li class="active">aaaa</li>
+		<li>aaaa</li>
+		<li>aaaa</li>
+		<li>aaaa</li>
+		<li>aaaa</li>
+		<li>aaaa</li>
+	</ul>
+	<script>
+		var list = document.getElementsByTagName('li');
+		console.log(list);
+		//console.log(list.reverse())
+		/*
+		将类数组转换成数组
+		var eles = [].slice.call(list);
+		console.log(eles);
+		console.log(eles.reverse());*/
+
+		/*
+		将类数组转换成数组
+		var eles = [];
+		for(var i = 0; i<list.length; i++){
+			eles[i] = list[i];
+		}
+		console.log(eles)
+		console.log(eles.reverse());*/
+
+		var eles = Array.from(list);
+		console.log(eles);
+		console.log(eles.reverse());
+
+
+		/*
+		*
+		*/
+		console.log(Array.of(1,32,4));
+		console.log(Array.of(4));
+	</script>
+</body>
+</html>

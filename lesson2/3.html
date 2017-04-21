@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		* arr.find()   返回第一个符合条件的元素  
+		* 			   都不符合返回undefi
+		*/
+		//@param1 fn
+		//@param2 this指向
+		var arr = [1,2,3,4,5,6];
+		var n = arr.find(function(value,index){
+			//参数1，value
+			//参数2，index
+			//参数3，arr本身
+			//console.log(arguments); 
+			//return value > 3;   输出4
+			//return value < 3;   输出
+			 return index > 6;   
+		})
+		console.log(n); 
+
+
+		var array = ['a','b','c','d','e','f'];
+		var num = array.findIndex(function(value,index){
+			// return value > 'd';  //返回4
+			return value > 'w';     // 返回-1
+		})
+		console.log(num); 
+
+
+		var a = new Array(10);
+		//console.log(a.fill('a'));
+		//console.log(a.fill('a',4));
+		console.log(a.fill('a',4,6)); //不包括索引6
+
+		//遍历key
+		var arr = ['大毛','二毛','三毛','四毛'];
+		for(var i in arr){
+			console.log(i);
+		}
+		//遍历value
+		for(var value of arr){
+			console.log(value);
+		}
+			
+		//遍历key	
+		for(var value of arr.keys()){
+			console.log(value);
+		}
+
+		//遍历 key value
+		for(var [key,value] of arr.entries()){
+			console.log(key,value);
+		}
+
+		/*console.log(arr.keys());   
+		var iterator = arr.keys();
+		console.log(iterator.next().value);   
+		console.log(iterator.next().value);   
+		console.log(iterator.next().value);   
+		console.log(iterator.next().value);*/   
+/*	
+
+		暂不支持
+		var iterator2 = arr.values();
+		console.log(iterator2.next().value);   
+		console.log(iterator2.next().value);   
+		console.log(iterator2.next().value);   
+		console.log(iterator2.next().value);   */
+	</script>
+</body>
+</html>

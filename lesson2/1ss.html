@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//call的继承性
+		var index = '大毛';
+		function getIndex(){
+			this.index = '二毛';
+			this.showIndex = function(){
+				console.log(this.index);
+			}
+		}
+		function Toshow(){
+			getIndex.call(this);   //继承
+		}
+		var show = new Toshow();
+		show.showIndex();
+	</script>
+</body>
+</html>

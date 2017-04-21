@@ -57,3 +57,69 @@
 	Math.trunc()      将小数点去掉
 	Math.sign()  判断是正数，负数， 0   -0
 	Math.hypot() 勾股定理     (平方和的平方根)
+7. 数组的扩展
+		1.Array.from();  类数组转换成数组 
+			原来的方法
+				1. 使用循环
+					for(var i = 0; i<list.length; i++){
+						eles[i] = list[i];
+					}
+				2. slice().call()方法
+					var list = document.getElementsByTagName('li');
+					var eles = [].slice.call(list);
+					console.log(eles);	
+			新方法
+				Array.from(); 
+					var list = document.getElementsByTagName('li');
+				var eles = Array.from(list);
+		2. Array.of();   将一组参数转换成数组
+			console.log(Array.of(5));  区别于 new Array(5)
+			console.log(Array.of(1,2,4));
+		3. arr.find(); 找出第一个符合条件的数组元素
+			参数：
+				回调函数
+			遍历整个数组，遍历过程中调用回调函数，如果回调函数的返回值为true，则返回当前正在遍历的元素
+			如果所有元素都不符合条件则返回undefined
+		4. arr.findIndex();  找出第一个符合条件的数组的元素索引
+			参数：
+				回调函数
+			查找成功返回索引，否则返回-1
+		5. arr.fill()  填充
+				@param1   value 填充的内容
+				@param2   start 起始点(可选)
+				@param3   end   介绍点(可选)
+
+		6. for  of 语句
+				--类似for in   （遍历key值）
+				for of (遍历value值)
+				可以遍历数组 字符串 不能遍历对象  需要一个遍历接口
+				遍历对象报错  undefined is not  a function
+
+		7. arr.keys()  获取所有的索引组成一个新的数组
+				var iterator = arr.keys();
+				console.log(iterator.next().value);   
+				console.log(iterator.next().value);   
+				console.log(iterator.next().value);   
+				console.log(iterator.next().value);
+		8. arr.values() 获取所有值组成的数组
+				--暂不支持
+				var iterator = arr.keys();
+		9. arr.entries()  用于对数组键值对的遍历
+				for(var [key,value] of arr.entries()){
+					console.log(key,value);
+				}
+		10. 数组的推导
+				--通过现有数组生成新的数组
+				--非标准 不推荐使用   火狐
+				var arr = [1,2,3,4,5];
+				var newArr = [for(value of arr) value*2];
+8. 对象的扩展
+		1.对象中函数的新的表示方法	
+			var obj1 = {
+				name:'三毛',
+				getName(){
+					console.log(this.name);
+				},
+				age:12
+			}
+			obj1.getName();

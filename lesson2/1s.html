@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function User(){
+			this.name='大毛';
+			this.showname = function(){
+				console.log(this.name);
+			}
+		}
+		function Show(){
+			this.name='二毛';
+		}
+		var user = new User();
+		var show = new Show();
+		user.showname();
+		
+		//使用call改变this的指向
+		//使用call改变上下文的环境 
+			//原来对象是user,使用call以后环境变成show
+		user.showname.call(show); //user.showname这个方法使用show调用
+
+
+		var index = '农妇三拳';
+		function Getname(){
+			this.index = '农夫果园';
+		}
+		function Demo(){
+			this.index='嘀嘀打人';
+			this.toshow = function(){
+				console.log(this.index);
+			}
+		}
+		var d = new Demo();
+		d.toshow(); //this 是d对象
+		d.toshow.call();//this 是window对象 
+		d.toshow.call(new Getname); //this 是实例化得到的Getname对象
+	</script>
+</body>
+</html>
