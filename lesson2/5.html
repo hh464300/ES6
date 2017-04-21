@@ -6,6 +6,20 @@
 </head>
 <body>
 	<script>
+		//新的对象表示方法
+		var uid = 0x00100324;
+		function showId(){
+			/*
+			旧的表示方法
+			return {
+				uid:uid
+			}*/
+			//新的表示方法
+			return {uid}
+		}
+		console.log(showId());
+		/*
+		对象中函数的表示方法
 		var obj = {
 			name:'小毛',
 			getName:function(){
@@ -20,7 +34,46 @@
 			},
 			age:12
 		}
-		obj1.getName();
+		obj1.getName();*/
+
+
+		var goods = 'iphone';
+		var index = 10;
+		var myphone = {
+			[goods+index]:'商品ID',
+			[goods+'price']:'商品价格',
+			['get'+'name'](){
+				console.log(this.iphone10,this.iphoneprice);
+			}
+		}
+		myphone.getname();
+
+
+		//Object.is()
+		console.log(Object.is(0,-0))
+		console.log(0 == -0)
+		console.log(0 === -0)
+		console.log(NaN === NaN)
+		console.log(Object.is(NaN,NaN));
+
+
+		//Object.assign()
+		var obj1 = {}
+		var obj2 = {
+			username:'小毛',
+			age:12
+		}
+		var obj3 = {
+			username:'二毛',
+			sex:'男'
+		}
+		console.log(Object.assign(obj1,obj2,obj3));
+		console.log(obj1); 
+		console.log(obj2);
+		console.log(obj3);
+
+
+	
 	</script>
 </body>
 </html>

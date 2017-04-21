@@ -114,7 +114,18 @@
 				var arr = [1,2,3,4,5];
 				var newArr = [for(value of arr) value*2];
 8. 对象的扩展
-		1.对象中函数的新的表示方法	
+		1.对象中属性的新的表示方法
+			var x = 1;
+			var y = 2;
+			function showObj = function(){
+				/*return {
+					x:x,
+					y:y
+				}*/
+				return {x,y}
+			}
+			console.log(showObj());
+		2.对象中函数的新的表示方法	
 			var obj1 = {
 				name:'三毛',
 				getName(){
@@ -123,3 +134,25 @@
 				age:12
 			}
 			obj1.getName();
+		3. 变量名表示式
+				var goods = 'iphone';
+				var index = 10;
+				var myphone = {
+					[goods+index]:'商品ID',
+					[goods+'price']:'商品价格',
+					['get'+'name'](){
+						console.log(this.iphone10,this.iphoneprice);
+					}
+				}
+				myphone.getname();
+		4. Object.is() 判断  不会自动转换数据类型
+			Object.is(NaN,NaN)  true
+			Object.is([],[])    false
+			Object.is(0,-1)     false
+			Object.is(NaN,0/-0)     true
+		5. Object.assign(obj1,obj2,obj3,...); 合并对象
+				--如果多个属性的属性名相同，后面的属性会覆盖前面的属性
+				--第一个obj1将具有后面所有对象的属性
+				  obj2 obj3依然是原来的属性
+		6.  obj.__proto__  ECMA6是一个新标准属性  获取设置原型
+		当对象的原型 __proto__ 属性已被大多数浏览器厂商所支持的今天，它的存在和使用行为，只是为了ECMAScript 6标准规范作为遗产特征而确保Web浏览器的兼容性。为了更好的支持，仅建议使用 Object.getPrototypeOf() 来代替。
