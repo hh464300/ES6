@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//获取数组最大值
+		var arr = [1,2,34,0,44,2];
+		/*
+		方法一：
+		var index = arr.sort(function(a,b){
+			return b-a;
+		})[0];
+		console.log(index);*/
+		/*
+		方法二：  
+				--此处null相当于不传对象 依然使用Math.max()  
+				--arr自动拆包
+		var index = Math.max.apply(null,arr);
+		console.log(index);*/
+
+		/*
+		方法三： 将[1,2,3]拆解成 1,2,3
+		console.log(Math.max(...arr));*/
+
+		var username = '大大毛';
+		 var obj = {
+		 	username:'二毛',
+		 	age:12
+		 }
+		 var user = {
+		 	username:'大毛',
+		 	getName(){
+		 		console.log(this.username);
+		 	}
+		 }
+		user.getName(obj); //大毛
+		user.getName.apply(obj); //二毛
+			//此处null相当于window 
+		user.getName.apply(null); //大大毛 相当于顶级 window
+
+	</script>
+</body>
+</html>

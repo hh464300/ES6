@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//代理  Proxy  构造函数
+			/*
+			*参数1： obj要代理的对象
+			*参数2： 对象{get(){},set(){}} 
+			*/
+		//get 用于属性的访问
+
+		//set用于属性的设置	
+		var obj = {
+			name:'小毛',
+			age:12
+		}
+
+		var p = new Proxy(obj,{
+			get(obj,attr){
+				//return obj[attr];//返回对象的属性	
+				if( typeof(obj[attr]) == 'string'){
+					return obj[attr]+'宝宝';
+				}
+				return obj[attr];
+			},
+			set(obj,attr,value){ 
+				if(value < 100){
+					obj[attr] = value;
+				}
+				
+			}
+		})
+		console.log(p.name);
+		console.log(p.age);
+
+		//设置
+		p.age = 120;
+		console.log(p.age);
+		p.age = 99;
+		console.log(p.age);
+
+		console.log(obj.age);//源对象属性值发生改变
+	</script>
+</body>
+</html>

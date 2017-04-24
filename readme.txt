@@ -156,3 +156,46 @@
 				  obj2 obj3依然是原来的属性
 		6.  obj.__proto__  ECMA6是一个新标准属性  获取设置原型
 		当对象的原型 __proto__ 属性已被大多数浏览器厂商所支持的今天，它的存在和使用行为，只是为了ECMAScript 6标准规范作为遗产特征而确保Web浏览器的兼容性。为了更好的支持，仅建议使用 Object.getPrototypeOf() 来代替。
+		7.  设置对象的代理
+			var obj = {};
+			var p = new Proxy(obj,{
+				get(obj,attr){
+					return obj[attr];
+				},
+				set(obj,attr,value){
+					obj[attr] = value;
+				}
+			})
+		8. Object.observe() -- 检测对象属性的更改 类似于对象
+				--此功能已过时。虽然它可能仍然在某些浏览器中工作，但是它的使用是不鼓励的，因为它可以随时被删除。尽量避免使用它。
+		9. Object.unobserve() -- 解除检测 此功能已过时
+
+		10. Object.keys() 
+				--获取索引的属性组成数组 
+
+	函数的默认参数
+		--IE不支持
+		function demo(a=100,b=200){
+			console.log(a,b);
+		}
+		demo();
+		demo(1,2);
+
+	扩展运算符...
+		1. function demo(a,b,c,...res){
+			console.log(res); 
+			//返回[4,5,6,7,8,9]
+			//res后面不能写其他的形参
+		}
+		demo(1,2,3,4,5,6,7,8,9);
+		2.  拆包 需要有遍历接口的 
+			var arr = [1,2,7,5,3];
+			Math.max(...arr);
+		
+			var str = 'lamp';
+			console.log(...str);
+	apply参数中的null
+		1. window
+		2. 不改变this指向
+		
+		 

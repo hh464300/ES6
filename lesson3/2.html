@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var obj = {
+			username:'二毛',
+			age:12,
+			sex:'男'
+		}
+/*
+		浏览器不支持
+		Object.observe(obj,function(){
+			console.log(arguments);
+		});
+
+		obj.age = 11;*/
+
+		console.log(Object.keys(obj));
+
+		/*参数默认值*/
+		function demo(a=10,b=100){
+			/*if(a == undefined){
+				a = 10;
+			}
+			if(b == undefined){
+				b = 100;
+			}*/
+			console.log(a,b);
+		}
+		demo(10,100);
+		demo(11);
+		//demo(2,20);
+		demo();
+		demo(2,22);
+
+		function demo(a,b,c,...res){
+			console.log(res);
+		}
+		demo(1,2,3,4,5,6,7,8,9);
+	</script>
+</body>
+</html>
