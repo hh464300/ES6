@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//箭头函数  --用于回调函数中
+		var fn = ()=>1000;
+		console.log(fn());
+
+
+		var fn = a=>a+1;
+		console.log(fn(22));
+
+		var fn = (a,b)=>a+b;
+		console.log(fn(1,2));
+
+		var fn = (a,b,...rest)=>{
+			//return Math.max(a,b,...rest);  返回9
+			var num  = a+b;
+			for(i = 0;i<rest.length; i++){
+				num += rest[i];
+			}
+			return num;   //返回22
+		}
+		console.log(fn(6,4,2,1,9));
+
+		//------------------------
+		//箭头函数的特点
+		//1. this的指向 () this总是指向词法作用域，也就是外层调用者obj
+		var username = '农妇三拳';
+		var obj = {
+			username:'农夫果园',
+			say:function(){
+				return function(){
+					console.log(this.username);  //this指向window
+				}
+			}
+		}
+		obj.say()();  //农妇三拳  
+
+
+		var user = '农妇三拳';
+		var obj1 = {
+			user:'农夫果园',
+			say:function(){
+				return ()=>{
+					console.log(this.user);  //this指向obj1 
+				} 
+			}
+		}
+		obj1.say()();
+
+		//同样的，用call()或者apply()调用箭头函数时，无法对this进行绑定，即传入的第一个参数被忽略
+		console.log('----------------');
+		var obj2 = {
+			uname:'农夫果园',
+			say:function(){
+				var fn = ()=>{
+					console.log(this.uname);
+				}
+				return fn.call({uname:'农妇三拳'});
+			}
+		}
+		obj2.say();  //返回农夫果园   call参数一 this的指向没有发生改变
+	</script>
+</body>
+</html>

@@ -173,29 +173,5 @@
 		10. Object.keys() 
 				--获取索引的属性组成数组 
 
-	函数的默认参数
-		--IE不支持
-		function demo(a=100,b=200){
-			console.log(a,b);
-		}
-		demo();
-		demo(1,2);
-
-	扩展运算符...
-		1. function demo(a,b,c,...res){
-			console.log(res); 
-			//返回[4,5,6,7,8,9]
-			//res后面不能写其他的形参
-		}
-		demo(1,2,3,4,5,6,7,8,9);
-		2.  拆包 需要有遍历接口的 
-			var arr = [1,2,7,5,3];
-			Math.max(...arr);
+	
 		
-			var str = 'lamp';
-			console.log(...str);
-	apply参数中的null
-		1. window
-		2. 不改变this指向
-		
-		 

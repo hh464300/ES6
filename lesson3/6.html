@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [1,5,42,2,2,1,5];
+		var mydata = new Set(arr);
+		//不存在重复的值
+		console.log(mydata); //返回1,5,42,2
+
+
+		//获取成员的数量
+		console.log(mydata.size);
+
+		//添加成员
+		mydata.add('大毛','二毛');  //只能添加一个
+		console.log((mydata));
+
+		mydata.add('大毛');  	  //已经存在的无法添加
+		console.log((mydata));
+
+		//删除成员
+		mydata.delete('大毛');
+		console.log(mydata);
+
+		//清除成员
+		mydata.clear();
+		console.log(mydata);
+
+
+		//---------------------
+			//访问set数据中的指定的值  先转换成数组
+		var mdata = new Set(arr);
+		var newArr = Array.from(mdata);
+		console.log(newArr);
+
+
+	</script>
+</body>
+</html>
